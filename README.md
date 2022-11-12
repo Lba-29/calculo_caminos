@@ -1,15 +1,15 @@
 # calculo_caminos
-En este repositorio he subido una serie de scripts que se permiten representar esquemáticamente una red, escoger un origen y destino y calcular cuál será el camino de menor coste. El programa presenta todos estos datos de manera visual y a través de una interfaz amigable con el usuario. Los datos de la red que lee el programa han tenido que ser almacenados previamente en un csv en forma de matriz de costes.
+En este repositorio he subido una serie de scripts que se permiten representar esquemáticamente una red, escoger un origen y destino, y calcular cuál será el camino de menor coste. El programa presenta todos estos datos de manera visual y a través de una interfaz amigable con el usuario. Los datos de la red que lee el programa han tenido que ser almacenados previamente en un csv en forma de matriz de costes.
 ## Funcionamiento y manejo
-El programa se inicia desde el script de python ```interfaz_grafica.py```. Un vez ejecutado, aparece una interfaz que permite introducir origen, destino y con 2 botones, uno para seleccionar el archivo donde el programa mirará los datos de la red y otro para calcular el camino más corto en base a la red escogida.
+El programa se inicia desde el script de python ```interfaz_grafica.py```. Al ejecutarlo, aparece una interfaz que permite introducir origen, destino y con 2 botones, uno para seleccionar el archivo donde el programa mirará los datos de la red y otro para calcular el camino más corto en base a la red escogida.
 
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/interfaz_inicio.png" width="25%" height="25%">
 
-La red que coge el programa está almacenada en un fichero llamado ```red.csv``` en el mismo directorio que el programa con el formato de matriz y separador ```;```
+La red que coge el programa está almacenada en un fichero llamado ```red.csv``` en el mismo directorio que el programa, con el formato de matriz y separador ```;``` (es el formato que guarda Excel los .csv)
 
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/archivo_csv.png" width="65%" height="65%">
 
-Esta estructura representa los links o enlaces entre los diferentes nodos de la red, siendo siempre valores positivos o nulos en caso de no estar enlazados. Se considera que las redes son *bidireccionales*, es decir, el coste de ir de un nodo A a B es el mismo que el de ir de B a A. Esto hace que la matriz de pesos del csv deba ser simétrica. De no serlo, el programa lo advierte.
+Esta estructura representa los links o enlaces entre los diferentes nodos de la red, siendo siempre valores positivos, o nulos en caso de no estar enlazados. Se considera que las redes son *bidireccionales*, es decir, el coste de ir de un nodo A a B es el mismo que el de ir de B a A. Esto hace que la matriz de pesos del csv deba ser simétrica. De no serlo, el programa lo advierte.
 
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/warning_csv_seleccionado.png" width="40%" height="40%">
 
@@ -17,7 +17,7 @@ Una vez introducida la matriz adecuada se representará la red con el coste de l
 
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/interfaz_red_seleccionada.png" width="50%" height="50%">
 
-Llegados a este punto ya es posible indicar origen y destino y seleccionar ```Calcular``` para conocer cuál es el camino de menor coste. El programa está pensado para que ```origen, destino > N = # nodos red``` y no haya problemas en el resto del código:
+Llegados a este punto ya es posible indicar origen y destino y seleccionar ```Calcular``` para conocer cuál es el camino de menor coste. El programa está pensado para que ```0 <= origen, destino < N = # nodos red``` y no haya problemas en el resto del código:
 
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/warning_origen_destino.png" width="50%" height="50%">
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/warning_origen_destino_iguales.png" width="50%" height="50%">
@@ -41,7 +41,7 @@ El programa está contenido en 3 elementos:
 
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/esquema_c.png" width="50%" height="50%">
 
-El programa en C utiliza el *algoritmo de Dijkstra* para obtener la ruta de menor coste. Está estructurado en funciones que o bien realizan una construcción de variables, condiciones iniciales y reserva dinámica de memoria; o implementar el algoritmo. Como resultado se obtiene el coste total de la ruta, los nodos que forman la ruta ordenados desde destino a origen:
+El programa en C utiliza el *algoritmo de Dijkstra* para obtener la ruta de menor coste. Está estructurado en funciones que o bien realizan una construcción de variables, condiciones iniciales y reserva dinámica de memoria; o bien implementan el algoritmo. Como resultado, se obtiene el coste total de la ruta, los nodos que forman la ruta ordenados desde destino a origen:
 
 <img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/programa_c.png" width="50%" height="50%">
 
@@ -57,7 +57,7 @@ Para dibujar la red he utilizado la librería ```networkx``` por su facilidad pa
 
 Como pasos a mejorar estaría el conseguir una interfaz más lograda, poder manejar el caso de redes no bidireccionales (que el coste del link A->B sea distinto B->A y eso pasa por quitar la restricción de matriz simétrica), la posibilidad de añadir *constraints* (que el usuario pueda bloquear nodos, modificar coste de los links en función de parámetros tales como ocupación o número de saltos, etc)
 
-Adicionalmente, es posible que el código presente algún fallo, o sea posible simplificarlo y hacerlo más legible y/o rápido. En ese caso feel free to change it.
+Adicionalmente, es posible que el código presente algún fallo, o sea posible simplificarlo, hacerlo más legible y/o rápido. En ese caso *feel free to change it*.
 
 ## Referencias
 
