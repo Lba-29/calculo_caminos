@@ -39,7 +39,7 @@ El programa está contenido en 3 elementos:
 
 ### Programa en C
 
-<img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/esquema_c.png" width="50%" height="50%">
+<img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/esquema_c.png" width="60%" height="60%">
 
 El programa en C utiliza el *algoritmo de Dijkstra* para obtener la ruta de menor coste. Está estructurado en funciones que o bien realizan una construcción de variables, condiciones iniciales y reserva dinámica de memoria; o bien implementan el algoritmo. Como resultado, se obtiene el coste total de la ruta, los nodos que forman la ruta ordenados desde destino a origen:
 
@@ -47,7 +47,7 @@ El programa en C utiliza el *algoritmo de Dijkstra* para obtener la ruta de meno
 
 ### Programa en python
 
-<img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/esquema_interfaz.png" width="50%" height="50%">
+<img src="https://github.com/Lba-29/calculo_caminos/blob/main/imagenes_readme/esquema_interfaz.png" width="60%" height="60%">
 
 El script principal esta estructurado como una clase. En ```__init__``` indico todos los elementos que tiene la interfaz (etiquetas, botones, etc) utilizando librería ```tkinter```. Cuando el usuario interacciona con ellos, será cuando se ejecutan algunos métodos de este objeto que harán cambios en la interfaz, tal y como intenta indicarse en el esquema superior.
 
